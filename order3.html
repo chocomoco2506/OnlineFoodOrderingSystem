@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Online Ordering</title>
+  <script src="https://use.fontawesome.com/7488f3a572.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery-3.4.1.min.js"></script> -->
+    <script src="magnific-popup/jquery.magnific-popup.js"></script>
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+
+
+
+      <link rel="stylesheet" href="stylee.css">
+      <style>
+        #submit {
+         background-color:  #d3325f;
+         padding: .5em;
+         border-radius: 50px;
+         color:white;
+
+         font-size: 20px;
+          text-decoration: none;
+         border: 3px solid #d3325f;
+        }
+
+        #submit:hover {
+         border: none;
+         background:  #d3325f;
+         box-shadow: 0px 0px 1px #777;
+         
+          
+
+        }
+        </style>
+
+</head>
+
+<body>
+    
+  <!-- Some images will show error in console due not having 'https' in the url,  nothing to worry about -->
+<input type="checkbox" id="cartToggle" name="toggle" />
+
+<!-- Menu -->
+<nav class="navbar">
+  <!-- <h2 id="logo">PET PUJA</h2> -->
+  
+  <a href="index.html">
+    <img src="logo.jpg" height='50' width='50' class="rounded-circle " >
+  </a>
+  <!--<a class="btnStyle popup-map" button id="submit" href="map.html">Location</a>-->
+  
+  
+</nav><!-- End of Navigation -->
+
+<div class="body-content">
+
+<!-- Cart -->
+<nav class="cart">
+  <h3>List of orders: <span>Rs.0</span></h3>
+  <ol id="listOfOrders">
+  </ol>
+  <a class="btnStyle btnStyle3 finishOrder">Finish Order</a>
+</nav>
+
+  <div class="recipe-menu" style="text-align: center;">
+
+    <!-- Recipe 1 -->
+    <div class="recipe">
+      <p class="name">Pepperoni cheese Pizza</p>
+      <img src="img/pepper.jpg">
+      
+      <p class="price"><span>MMK. </span>8000<br><label>Quantity-</label><input style="border-radius: 10pt; font-size:15pt;margin-top:15pt;width:40pt; height:20pt; text-align: center;" type="text"name="t1" id="t1"></p>
+    </div>
+
+    <!-- Recipe 2 -->
+    <div class="recipe">
+      <p class="name">Prawn cheese Pizza</p>
+      <img src="img/prawn.jpg">
+      
+      <p class="price"><span>MMK. </span>6000<br><label>Quantity-</label><input style="border-radius: 10pt; font-size:15pt;margin-top:15pt;width:40pt; height:20pt; text-align: center;" type="text"name="t1" id="t2"></p>
+    </div>
+
+    <!-- Recipe 3 -->
+    <div class="recipe">
+      <p class="name">BBQ Pork cheese Pizza</p>
+      <img src="img/BBQ.jpg">
+   
+      <p class="price"><span>MMK. </span>9500<br><label>Quantity-</label><input style="border-radius: 10pt; font-size:15pt;margin-top:15pt;width:40pt; height:20pt; text-align: center;" type="text"name="t1" id="t3"></p>
+    </div>
+
+    <!-- Recipe 4 -->
+    <div class="recipe">
+      <p class="name">Cheese Pizza</p>
+      <img src="img/cheese.jpg">
+    
+      <p class="price"><span>MMK.</span>6000<br><label>Quantity-</label><input style="border-radius: 10pt; font-size:15pt;margin-top:15pt;width:40pt; height:20pt; text-align: center;" type="text"name="t1" id="t4"></p>
+    </div>
+
+    <!-- Recipe 5 -->
+    <div class="recipe">
+      <p class="name">BBQ Chicken cheese Pizza</p>
+      <img src="img/chicken.jpg">
+      
+      <p class="price"><span> MMK. </span>9500<br><label>Quantity-</label><input style="border-radius: 10pt; font-size:15pt;margin-top:15pt;width:40pt; height:20pt; text-align: center;" type="text"name="t1" id="t5">  </p>
+    </div>
+
+    <!-- Recipe 6 -->
+    <div class="recipe">
+      <p class="name">White Pizza</p>
+      <img src="img/white.jpg">
+      
+      <p class="price"><span>MMK. </span>8000<br><label>Quantity-</label><input style="border-radius: 10pt; font-size:15pt;margin-top:15pt;width:40pt; height:20pt; text-align: center;" type="text"name="t1" id="t6"></p>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <button style="padding:10pt 30pt 10pt 30pt; font-size: 12pt; text-align: center;
+   margin-left: 43%; border-radius: 30px;background-color:green; color:white;"onclick="OK()">Confirm Order</button>
+</div>
+
+  <div style="background-color:white;
+  padding: 20pt 20pt 100pt 20pt;
+  font-size: 17pt;text-align:justify;
+  line-height: 30pt;
+  margin-right: 250pt;
+  margin-left:250pt;
+  margin-top:10pt;
+  border-radius: 20pt;
+  font-style:oblique;
+ ">
+    <p id="insert1">
+    <p id="insert2"> </p>
+    <p id="insert3"> </p>
+    <p id="insert4"> </p>
+    <p id="insert5"> </p>
+    <p id="insert6"> </p>
+    <p id="insert"> </p>
+
+  <a  style="padding: 5pt 4pt 5pt 5pt; font-size: 12pt; text-align: center; width:50pt; height:25pt;
+   margin-left: 50%; margin-top:60pt; float:right; border-radius: 20px;background-color:green; color:white;" href="payment3.html">Checkout</a>
+</div>
+
+<script>
+  
+  function OK(){
+    
+    var q1=document.getElementById("t1").value;
+    
+      if(q1==0)
+      var t1=0;
+    
+    else
+       t1=8000*q1;
+
+     var q2=document.getElementById("t2").value;
+    
+      if(q2==0)
+      var t2=0;
+    
+    else
+       t2=6000*q2;
+
+     var q3=document.getElementById("t3").value;
+    
+      if(q3==0)
+      var t3=0;
+    
+    else
+       t3=9500*q3;
+
+     var q4=document.getElementById("t4").value;
+    
+      if(q4==0)
+      var t4=0;
+    
+    else
+       t4=6000*q4;
+
+     var q5=document.getElementById("t5").value;
+    
+      if(q5==0)
+      var t5=0;
+    
+    else
+       t5=95000*q5;
+
+     var q6=document.getElementById("t6").value;
+    
+      if(q6==0)
+      var t6=0;
+    
+    else
+       t6=8000*q6;
+
+     
+var total=t1+t2+t3+t4+t5+t6;
+
+    document.getElementById("insert").innerHTML="Your total amount--:"+"("+total+")"+" Ks";
+    if(q1!=0)
+    document.getElementById("insert1").innerHTML="Pepperoni cheese Pizza-----"+q1+"(Q)";
+    if(q2!=0)
+    document.getElementById("insert2").innerHTML="Prawn cheese Pizza-----"+q2+"(Q)";
+  if(q3!=0)
+    document.getElementById("insert3").innerHTML="BBQ Pork cheese Pizza-----"+q3+"(Q)";
+  if(q4!=0)
+    document.getElementById("insert4").innerHTML="Cheese Pizza-----"+q4+"(Q)";
+  if(q5!=0)
+    document.getElementById("insert5").innerHTML="BBQ Chicken cheese Pizza-----"+q5+"(Q)";
+  if(q6!=0)
+    document.getElementById("insert6").innerHTML="White Pizza-----"+q6+"(Q)";
+
+  }
+  
+
+  
+  
+</script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body style="background-image:url('img/payment.jpg'); width:100%; height:100%;">
+ <div style="background-color:white;
+  	padding: 8pt 20pt 40pt 50pt;
+  font-size: 14pt;text-align:justify;
+  line-height: 30pt;
+  margin-right: 350pt;
+  margin-left:350pt;
+  margin-top:80pt;
+  ">
+
+  <button style="font-size:12pt; float:right;background-color: green; color:white;" onclick="Cancle()">X</button>
+
+  <p style="margin-right: 30pt;
+  text-align: left;
+  font-size: 20pt;">
+	Confirm Order</p>
+<form action="">
+ 	Name<br><input type="text" id="name" required  placeholder="Enter your name" style="width: 200pt; height: 20pt; border: 3pt solid grey;" ><br>
+ 	Address<br><input type="text" id="address" required  placeholder="Enter your name" style="width: 200pt; height: 20pt; border: 3pt solid grey;"><br>
+ 	Phone<br><input type="text" required id="phone" placeholder="Enter phone number" style="width: 200pt; height: 20pt; border: 3pt solid grey;" >
+  <br>
+  <div id="Error" style="font-size: 13pt; float:left; color:red; font-style:oblique;"> </div>
+ 	<br>
+ 	<input type="submit" onclick="OK()" style="padding: 5pt 4pt 5pt 5pt; font-size: 10pt; text-align: center;
+   margin-left: 43%; margin-top:7pt; float:right; border-radius:7px;background-color:green; color:white;" value="Confirm order">
+ </div>
+</form>
+
+ <script type="text/javascript">
+ 	function OK() {
+  var name=document.getElementById('name').value;
+  var address=document.getElementById('address').value;
+  var phone=document.getElementById('phone').value;
+
+  if(name=="" && address=="" && phone==""){
+    document.getElementById('Error').innerHTML="Enter your name,address and phone.";}
+  else if(name=="" && address==""){
+    document.getElementById('Error').innerHTML="Enter your name and address;"}
+  else if(name=="" && phone==""){
+    document.getElementById('Error').innerHTML="Enter your name and phone.";}
+  else if(phone=="" && address==""){
+    document.getElementById('Error').innerHTML="Enter your address and phone.";}
+  else if(name==""){
+    document.getElementById('Error').innerHTML="Enter your name.";}
+  else if(address==""){
+    document.getElementById('Error').innerHTML="Enter your address.";}
+  else if(phone==""){
+    document.getElementById('Error').innerHTML="Enter your phone.";}
+  else{
+    var con=window.confirm("Thank.Your order is Successfully");
+      if(con)
+        window.open("index.html");}
+ 	}
+
+  function Cancle(){
+  window.open("order1.html");
+  }
+
+  
+ </script>
+
+</body>
+</html>
